@@ -16,5 +16,20 @@
         modules = [ ./hosts/glacier/configuration.nix ];
       };
     };
+
+    homeConfigurations = let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+    {
+      "greatpigeon@etna" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          user = "greatpigeon";
+        };
+
+        modules = [ ./hosts/etna/greatpigeon/home.nix ];
+      };
+    };
   };
 }
