@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./syncoid.nix
+      ./ci.nix
     ];
 
   time.timeZone = "America/New_York";
@@ -24,6 +25,8 @@
     zfs.forceImportRoot = false;
     zfs.extraPools = [ "dpool" ];
   };
+
+  security.sudo.enable = true;
 
   networking.hostId = "3792e26b"; # `head -c 8 /etc/machine-id`
 
