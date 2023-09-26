@@ -120,6 +120,8 @@
     exa
     fd
 
+    nftables
+
     neovim
     tree-sitter
     nil
@@ -128,8 +130,6 @@
     nodePackages.neovim
     python311Packages.pynvim
     python311Packages.argcomplete
-
-    (callPackage ../../pkgs/urbackup-server { })
   ];
 
   environment.shells = with pkgs; [ zsh ];
