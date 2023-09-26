@@ -129,6 +129,7 @@
     python311Packages.pynvim
     python311Packages.argcomplete
 
+    (callPackage ../../pkgs/urbackup-server { })
   ];
 
   environment.shells = with pkgs; [ zsh ];
