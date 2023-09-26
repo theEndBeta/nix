@@ -3,6 +3,7 @@ user := `id -un`
 hostname := `uname -n`
 home-manager-id := user + "@" + hostname
 cmd := if is_nixos == "true" { "nixos-rebuild" } else { "home-manager" }
+sudo := if is_nixos == "true" { "sudo" } else { "" }
 target := if is_nixos == "true" { hostname } else { home-manager-id }
 export NIX_BUILD_CORES := `nproc=$(nproc); echo $(( nproc / 2 ))`
 
@@ -19,11 +20,11 @@ sys-info:
 
 [linux]
 switch:
-  {{ cmd }} switch --flake ".#{{ target }}"
+  {{sudo}} {{ cmd }} switch --flake ".#{{ target }}"
 
 [linux]
 build:
-  {{ cmd }} build --flake ".#{{ target }}"
+  {{sudo}} {{ cmd }} build --flake ".#{{ target }}"
 
 [linux]
 update:
