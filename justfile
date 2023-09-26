@@ -19,19 +19,19 @@ sys-info:
 
 [linux]
 switch:
-  {{ cmd }} switch --flake "{{ justfile_directory() }}#{{ target }}"
+  {{ cmd }} switch --flake ".#{{ target }}"
 
 [linux]
 build:
-  {{ cmd }} build --flake "{{ justfile_directory() }}#{{ target }}"
+  {{ cmd }} build --flake ".#{{ target }}"
 
 [linux]
 update:
-  nix flake update "{{ justfile_directory() }}#{{ target }}"
+  nix flake update
 
 [linux]
 check:
-  nix flake check "{{ justfile_directory() }}"
+  nix flake check
 
 [no-cd]
 pkg-build dir=".":
