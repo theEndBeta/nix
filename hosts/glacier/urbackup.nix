@@ -1,8 +1,10 @@
 { config, lib, pkgs, modulesPath, ... }:
 
-{
+let 
+  urbackup-server = (pkgs.callPackage ../../pkgs/urbackup-server { });
+in {
   environment.systemPackages = with pkgs; [
-    (callPackage ../../pkgs/urbackup-server { })
+    urbackup-server
   ];
 
   users = {
@@ -20,13 +22,13 @@
         setuid = true;
         owner = "urbackup";
         group = "urbackup";
-        source = "${pkgs.urbackup}/urbackup_snapshot_helper";
+        source = "${urbackup-server}/urbackup_snapshot_helper";
       };
       urbackup_mount_helper = {
         setuid = true;
         owner = "urbackup";
         group = "urbackup";
-        source = "${pkgs.urbackup}/urbackup_snapshot_helper";
+        source = "${urbackup-server}/urbackup_snapshot_helper";
       };
     };
   };
