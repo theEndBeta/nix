@@ -30,6 +30,14 @@
 
         modules = [ ./hosts/etna/greatpigeon/home.nix ];
       };
+      "greatpigeon@katmai" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          user = "greatpigeon";
+        };
+
+        modules = [ ./hosts/katmai/greatpigeon/home.nix ];
+      };
     };
   };
 }
