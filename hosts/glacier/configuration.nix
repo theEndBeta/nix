@@ -88,7 +88,8 @@
       ];
       openssh.authorizedKeys.keys = [
         "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJK6ko9hE8IV2s9IHvbNI+/JhIWSZ61JgnlR+xyYar+UAAAACXNzaDpnaXQtYQ== a@greatpigeon@etna"
-        "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJpN/6pfDNGIKHNqbsc4/hZH01iFqBuQWx1NG0SVPPqZAAAACXNzaDpnaXQtYQ== c@greatpigeon@etna"
+        "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIGgJyHXOgNR+k98laa6c5LfrEhZbO7fhc8Xf9DutnWQFAAAABHNzaDo= greatpigeon@etna@cubic5c"
+        "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIDkzb2zsRCU+LwKHEvnEMTxh9MBOSbAAyUz+aRFK450OAAAABHNzaDo= greatpieon@katmai@cubic5c"
       ];
     };
     users.backup = {
@@ -102,7 +103,8 @@
       ];
       openssh.authorizedKeys.keys = [
         "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJK6ko9hE8IV2s9IHvbNI+/JhIWSZ61JgnlR+xyYar+UAAAACXNzaDpnaXQtYQ== a@greatpigeon@etna"
-        "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJpN/6pfDNGIKHNqbsc4/hZH01iFqBuQWx1NG0SVPPqZAAAACXNzaDpnaXQtYQ== c@greatpigeon@etna"
+        "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIGgJyHXOgNR+k98laa6c5LfrEhZbO7fhc8Xf9DutnWQFAAAABHNzaDo= greatpigeon@etna@cubic5c"
+        "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIDkzb2zsRCU+LwKHEvnEMTxh9MBOSbAAyUz+aRFK450OAAAABHNzaDo= greatpieon@katmai@cubic5c"
       ];
     };
   };
