@@ -15,6 +15,10 @@
         system = "x86-64-linux";
         modules = [ ./hosts/glacier/configuration.nix ];
       };
+      mageik = nixpkgs.lib.nixosSystem {
+        system = "x86-64-linux";
+        modules = [ ./hosts/mageik/configuration.nix ];
+      };
     };
 
     homeConfigurations = let
