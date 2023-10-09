@@ -7,6 +7,7 @@
   };
 
   environment.systemPackages = [
+    pkgs.podman
     pkgs.podman-tui
   ];
 
