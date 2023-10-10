@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./sanoid.nix
       ./home.nix
+      ./podman.nix
     ];
 
   time.timeZone = "America/New_York";
