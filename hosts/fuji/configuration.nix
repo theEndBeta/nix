@@ -39,7 +39,7 @@
 
   home-manager = {
     useGlobalPkgs = true;
-    userUserPackages = true;
+    useUserPackages = true;
     users.aidanstein = { pkgs }: {
       stateVersion = "23.05";
     };
