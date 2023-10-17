@@ -3,13 +3,16 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    darwin.url = "github:lnl7/nix-darwin/master";
+    darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, darwin }@inputs: {
     nixosConfigurations = {
       glacier = nixpkgs.lib.nixosSystem {
         system = "x86-64-linux";
@@ -42,6 +45,16 @@
         };
 
         modules = [ ./hosts/katmai/greatpigeon/home.nix ];
+      };
+    };
+
+    darwinConfigurations = {
+      fuji = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [ 
+          home-manager.darwinModules.home-manager
+          ./hosts/fuji/configuration.nix
+        ];
       };
     };
   };
