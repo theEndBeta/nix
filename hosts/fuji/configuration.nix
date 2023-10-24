@@ -68,8 +68,13 @@
     difftastic
 
     fzf
+    tree-sitter
 
     python311Packages.argcomplete
+
+    podman
+    podman-tui
+    # podman-desktop
   ];
 
   fonts = {
@@ -91,6 +96,7 @@
         stateVersion = "23.05";
         packages = with pkgs; [
           nodePackages.bash-language-server
+          nodePackages.yaml-language-server
           nodePackages.pyright
           nil
         ];
@@ -109,6 +115,9 @@
     ];
     casks = [
       "warp"
+    ];
+    taps = [
+      "pantsbuild/tap"
     ];
   };
 }
