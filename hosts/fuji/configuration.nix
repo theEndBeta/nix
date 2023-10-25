@@ -57,6 +57,7 @@
     neovim
     chezmoi
     curl
+    wget
     git
     just
     bitwarden-cli
@@ -99,6 +100,7 @@
           nodePackages.yaml-language-server
           nodePackages.pyright
           nil
+          marksman
         ];
       };
     };
@@ -112,6 +114,8 @@
     brews = [
       "libfido2"
       "openssh"
+      "pyenv"
+      "awscli"
     ];
     casks = [
       "warp"
