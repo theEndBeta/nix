@@ -101,6 +101,7 @@
           nodePackages.pyright
           nil
           marksman
+          pipx
         ];
       };
     };
