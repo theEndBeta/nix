@@ -14,18 +14,18 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/cb68532b-87fc-42ea-9f0f-0501137cfccb";
+    { device = "/dev/disk/by-id/nvme-Sabrent_BB2A0714086400143482-part2";
       fsType = "btrfs";
       options = [ "subvol=@" "compress=zstd" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/65C7-7528";
+    { device = "/dev/disk/by-id/nvme-Sabrent_BB2A0714086400143482-part1";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/2694d96b-5462-409a-9dc4-1bf885997bf4"; }
+    [ { device = "/dev/disk/by-id/nvme-Sabrent_BB2A0714086400143482-part3"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
