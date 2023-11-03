@@ -76,6 +76,7 @@
     podman
     podman-tui
     # podman-desktop
+    qemu
   ];
 
   fonts = {
@@ -117,6 +118,13 @@
       "openssh"
       "pyenv"
       "awscli"
+      "gcc"
+
+      # etxlib requirements
+      "gfortran"
+      "cython"
+      "lapack"
+      "openblas"
     ];
     casks = [
       "warp"
