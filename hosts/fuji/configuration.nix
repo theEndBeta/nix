@@ -103,6 +103,7 @@
           nil
           marksman
           pipx
+          hadolint
         ];
       };
     };
