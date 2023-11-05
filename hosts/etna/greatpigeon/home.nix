@@ -20,7 +20,8 @@
   home.packages = with pkgs; [
     # home management prereqs
     git
-    ansible
+    python311Packages.ansible
+    python311Packages.ansible-core
 
     # language servers
     nil # nix
@@ -30,6 +31,7 @@
     terraform-ls
     tflint
     ansible-language-server
+    ansible-lint
 
     shellcheck
 
