@@ -2,13 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./sanoid.nix
+      ./home.nix
     ];
 
   time.timeZone = "America/New_York";
@@ -54,7 +55,11 @@
       extraGroups = [ "wheel" "networkManager" ]; # Enable ‘sudo’ for the user.
       home = "/home/vesu";
       createHome = true;
-      packages = [];
+      packages = [
+        pkgs.bitwarden-cli
+        pkgs.nodePackages.yaml-language-server
+        pkgs.ansible-language-server
+      ];
       openssh.authorizedKeys.keys = [
         "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJK6ko9hE8IV2s9IHvbNI+/JhIWSZ61JgnlR+xyYar+UAAAACXNzaDpnaXQtYQ== a@greatpigeon@etna"
         "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIGgJyHXOgNR+k98laa6c5LfrEhZbO7fhc8Xf9DutnWQFAAAABHNzaDo= greatpigeon@etna@cubic5c"
@@ -68,7 +73,6 @@
   environment.systemPackages = with pkgs; [
     neovim
     wget
-    tmux
     zsh
     chezmoi
     git
@@ -76,6 +80,8 @@
     ripgrep
     exa
     fd
+    fzf
+    difftastic
 
     just
 
@@ -92,7 +98,10 @@
   ];
 
   environment.shells = with pkgs; [ zsh ];
-  programs.zsh.enable = true;
+  programs = {
+    zsh.enable = true;
+    tmux.enable = true;
+  };
 
   environment.variables.EDITOR = "nvim";
 

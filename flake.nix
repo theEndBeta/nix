@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager }: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager }@inputs: {
     nixosConfigurations = {
       glacier = nixpkgs.lib.nixosSystem {
         system = "x86-64-linux";
@@ -17,6 +17,7 @@
       };
       mageik = nixpkgs.lib.nixosSystem {
         system = "x86-64-linux";
+        specialArgs = {inherit inputs;};
         modules = [ ./hosts/mageik/configuration.nix ];
       };
     };
