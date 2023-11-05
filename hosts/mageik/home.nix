@@ -10,7 +10,7 @@
         git = {
           enable = true;
           userName = "vesu@mageik";
-          userEmail = "mageik@vesulabs.us";
+          userEmail = "2302239+theEndBeta@users.noreply.github.com.";
           extraConfig = {
             commit.gpgsign = true;
             gpg.format = "ssh";
