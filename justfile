@@ -26,7 +26,6 @@ switch:
 build:
   {{sudo}} {{ cmd }} build --flake ".#{{ target }}"
 
-[linux]
 update:
   nix flake update
 
