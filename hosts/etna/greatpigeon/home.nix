@@ -23,6 +23,9 @@
     python311Packages.ansible
     python311Packages.ansible-core
 
+    bat
+    exa
+
     # language servers
     nil # nix
     nodePackages.pyright
