@@ -37,3 +37,11 @@ check:
 [no-cd]
 pkg-build dir=".":
   nix-build -E 'with import <nixpkgs> {}; callPackage {{ dir }}/default.nix {}'
+
+[macos]
+switch:
+  nix run nix-darwin -- switch --flake ".#{{ hostname }}"
+
+[macos]
+build:
+  nix run nix-darwin -- build --flake ".#{{ hostname }}"
