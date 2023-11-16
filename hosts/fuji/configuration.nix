@@ -105,7 +105,6 @@
           marksman
           pipx
           hadolint
-          starship
         ];
       };
     };
