@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, pkgs-unstable, user, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -50,6 +50,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs-unstable.go
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

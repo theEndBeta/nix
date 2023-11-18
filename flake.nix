@@ -28,11 +28,13 @@
     homeConfigurations = let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in
     {
       "greatpigeon@etna" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
+          inherit pkgs-unstable;
           user = "greatpigeon";
         };
 
