@@ -74,9 +74,7 @@
 
     python311Packages.argcomplete
 
-    podman
     podman-tui
-    # podman-desktop
     qemu
   ];
 
@@ -127,9 +125,11 @@
       "cython"
       "lapack"
       "openblas"
+      "podman"
     ];
     casks = [
       "warp"
+      "podman-desktop"
     ];
     taps = [
       "pantsbuild/tap"
