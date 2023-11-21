@@ -1,4 +1,4 @@
-{pkgs, lib, ...}:
+{pkgs, lib, pkgs-unstable, ...}:
 
 {
   programs.zsh.enable = true;
@@ -76,6 +76,10 @@
 
     podman-tui
     qemu
+    pkgs-unstable.go
+    pkgs-unstable.gopls
+    pkgs-unstable.golangci-lint
+    pkgs-unstable.golangci-lint-langserver
   ];
 
   fonts = {

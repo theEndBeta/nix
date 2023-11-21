@@ -50,9 +50,16 @@
       };
     };
 
-    darwinConfigurations = {
+    darwinConfigurations = let
+      system = "aarch64-darwin";
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    in
+    {
       fuji = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
+        system = system;
+        specialArgs = {
+          inherit pkgs-unstable;
+        };
         modules = [ 
           home-manager.darwinModules.home-manager
           ./hosts/fuji/configuration.nix
