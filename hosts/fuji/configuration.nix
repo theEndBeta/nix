@@ -103,6 +103,7 @@
           nodePackages.bash-language-server
           nodePackages.yaml-language-server
           nodePackages.pyright
+          nodePackages.yarn
           nil
           marksman
           pipx
