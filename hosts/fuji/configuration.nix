@@ -1,7 +1,13 @@
 {pkgs, lib, pkgs-unstable, ...}:
 
 {
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+
+    # I add to fpath myself
+    enableCompletion = false;
+    enableBashCompletion = false;
+  };
 
   services.nix-daemon.enable = true;
 
@@ -75,7 +81,6 @@
     python311Packages.argcomplete
 
     podman-tui
-    qemu
     pkgs-unstable.go
     pkgs-unstable.gopls
     pkgs-unstable.golangci-lint
@@ -131,6 +136,7 @@
       "lapack"
       "openblas"
       "podman"
+      "qemu"
     ];
     casks = [
       "warp"
@@ -138,6 +144,7 @@
     ];
     taps = [
       "pantsbuild/tap"
+      "dagger/tap"
     ];
   };
 }
