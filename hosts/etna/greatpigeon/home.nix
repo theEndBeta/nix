@@ -20,8 +20,6 @@
   home.packages = with pkgs; [
     # home management prereqs
     git
-    python311Packages.ansible
-    python311Packages.ansible-core
 
     bat
     exa
@@ -35,6 +33,7 @@
     tflint
     ansible-language-server
     ansible-lint
+    ansible
 
     shellcheck
 
@@ -51,6 +50,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     pkgs-unstable.go
+    pipx
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
