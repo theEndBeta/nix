@@ -103,7 +103,7 @@
     useUserPackages = true;
     users.aidanstein = { pkgs, ... }: {
       home = {
-        stateVersion = "23.05";
+        stateVersion = "23.11";
         packages = with pkgs; [
           nodePackages.bash-language-server
           nodePackages.yaml-language-server
