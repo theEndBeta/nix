@@ -22,7 +22,7 @@
     git
 
     bat
-    exa
+    eza
 
     # language servers
     nil # nix

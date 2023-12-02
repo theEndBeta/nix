@@ -69,7 +69,7 @@
     bitwarden-cli
 
     ripgrep
-    exa
+    eza
     fd
     bat
     difftastic

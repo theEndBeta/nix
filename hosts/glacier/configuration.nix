@@ -120,7 +120,7 @@
     git
     sanoid
     ripgrep
-    exa
+    eza
     fd
 
     nftables

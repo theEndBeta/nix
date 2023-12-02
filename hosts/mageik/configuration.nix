@@ -78,7 +78,7 @@
     git
     sanoid
     ripgrep
-    exa
+    eza
     fd
     fzf
     difftastic
