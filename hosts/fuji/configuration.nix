@@ -137,6 +137,9 @@
       "openblas"
       "podman"
       "qemu"
+      "viddy"
+      "docker"
+      "docker-buildx"
     ];
     casks = [
       "warp"
