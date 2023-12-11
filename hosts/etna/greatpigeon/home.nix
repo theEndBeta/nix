@@ -23,6 +23,7 @@
 
     bat
     eza
+    bottom
 
     # language servers
     nil # nix

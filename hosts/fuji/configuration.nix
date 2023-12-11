@@ -74,6 +74,7 @@
     bat
     difftastic
     jq
+    bottom
 
     fzf
     tree-sitter
