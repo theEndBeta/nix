@@ -20,7 +20,10 @@
   home.packages = with pkgs; [
     # home management prereqs
     git
-    ansible
+
+    bat
+    eza
+    bottom
 
     # language servers
     nil # nix
@@ -30,10 +33,10 @@
     terraform-ls
     tflint
     ansible-language-server
+    ansible-lint
+    ansible
 
     shellcheck
-
-    fzf
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -47,6 +50,8 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs-unstable.go
+    pipx
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
