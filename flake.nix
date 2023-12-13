@@ -43,6 +43,7 @@
       "greatpigeon@katmai" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
+          inherit pkgs-unstable;
           user = "greatpigeon";
         };
 
