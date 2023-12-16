@@ -24,19 +24,24 @@
     bat
     eza
     bottom
+    ripgrep
+    fd
+    fzf
 
     # language servers
     nil # nix
     nodePackages.pyright
     nodePackages.yaml-language-server
+    nodePackages.bash-language-server
     lua-language-server
-    terraform-ls
-    tflint
+    ruff-lsp
     ansible-language-server
     ansible-lint
     ansible
 
     shellcheck
+
+    pipx
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -50,8 +55,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs-unstable.go
-    pipx
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -47,7 +47,10 @@
           user = "greatpigeon";
         };
 
-        modules = [ ./hosts/katmai/greatpigeon/home.nix ];
+        modules = [
+          ./hosts/katmai/greatpigeon/home.nix
+          ./shared/emp.nix
+        ];
       };
     };
 
@@ -64,6 +67,7 @@
         modules = [ 
           home-manager.darwinModules.home-manager
           ./hosts/fuji/configuration.nix
+          ./shared/emp.nix
         ];
       };
     };

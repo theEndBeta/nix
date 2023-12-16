@@ -82,10 +82,6 @@
     python311Packages.argcomplete
 
     podman-tui
-    pkgs-unstable.go
-    pkgs-unstable.gopls
-    pkgs-unstable.golangci-lint
-    pkgs-unstable.golangci-lint-langserver
   ];
 
   fonts = {
@@ -103,6 +99,9 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.aidanstein = { pkgs, ... }: {
+      imports = [
+        ../../shared/emp.nix
+      ];
       home = {
         stateVersion = "23.11";
         packages = with pkgs; [
