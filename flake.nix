@@ -67,7 +67,6 @@
         modules = [ 
           home-manager.darwinModules.home-manager
           ./hosts/fuji/configuration.nix
-          ./shared/emp.nix
         ];
       };
     };

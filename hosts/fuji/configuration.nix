@@ -96,12 +96,11 @@
   };
 
   home-manager = {
+    extraSpecialArgs = { inherit pkgs-unstable; };
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.aidanstein = { pkgs, ... }: {
-      imports = [
-        ../../shared/emp.nix
-      ];
+    users.aidanstein = { pkgs, home, pkgs-unstable, ... }: {
+      imports = [ ../../shared/emp.nix ];
       home = {
         stateVersion = "23.11";
         packages = with pkgs; [

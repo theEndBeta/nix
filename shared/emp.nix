@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, user, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 let
   goDevTools = [
