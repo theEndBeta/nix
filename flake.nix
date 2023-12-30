@@ -10,16 +10,20 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, darwin }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, home-manager-unstable }@inputs: {
     nixosConfigurations = {
       glacier = nixpkgs.lib.nixosSystem {
         system = "x86-64-linux";
         modules = [ ./hosts/glacier/configuration.nix ];
       };
-      mageik = nixpkgs.lib.nixosSystem {
-        system = "x86-64-linux";
+      system = "x86-64-linux";
+      mageik = nixpkgs-unstable.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [ ./hosts/mageik/configuration.nix ];
       };

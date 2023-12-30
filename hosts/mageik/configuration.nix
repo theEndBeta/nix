@@ -5,7 +5,7 @@
 { config, pkgs, pkgs-unstable, inputs, ... }:
 
 {
-  specialArgs = { inherit pkgs-unstable; };
+  # specialArgs = { inherit inputs; };
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
