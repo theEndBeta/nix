@@ -82,6 +82,7 @@
     python311Packages.argcomplete
 
     podman-tui
+    tailscale
   ];
 
   fonts = {
@@ -139,14 +140,16 @@
       "viddy"
       "docker"
       "docker-buildx"
+
+      "vfkit"
     ];
     casks = [
-      "warp"
       "podman-desktop"
     ];
     taps = [
       "pantsbuild/tap"
       "dagger/tap"
+      "cfergeau/crc"
     ];
   };
 }
