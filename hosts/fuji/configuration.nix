@@ -10,6 +10,10 @@
   };
 
   services.nix-daemon.enable = true;
+  services.tailscale = {
+    enable = true;
+    package = pkgs-unstable.tailscale;
+  };
 
   security.pam.enableSudoTouchIdAuth = true;
 
@@ -82,7 +86,6 @@
     python311Packages.argcomplete
 
     podman-tui
-    tailscale
   ];
 
   fonts = {
