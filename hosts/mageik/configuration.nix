@@ -55,13 +55,19 @@
 
     users.vesu = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkManager" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "networkManager" "dialout" ]; # Enable ‘sudo’ for the user.
       home = "/home/vesu";
       createHome = true;
       packages = [
         pkgs.bitwarden-cli
         pkgs.nodePackages.yaml-language-server
         pkgs.ansible-language-server
+      ];
+      subUidRanges = [
+        { startUid = 100000; count = 65536; }
+      ];
+      subGidRanges = [
+        { startGid = 100000; count = 65536; }
       ];
       openssh.authorizedKeys.keys = [
         "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJK6ko9hE8IV2s9IHvbNI+/JhIWSZ61JgnlR+xyYar+UAAAACXNzaDpnaXQtYQ== a@greatpigeon@etna"
@@ -88,9 +94,8 @@
 
     just
 
-    nftables
+    python3
 
-    neovim
     tree-sitter
     nil
     nodePackages.bash-language-server

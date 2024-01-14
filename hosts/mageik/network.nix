@@ -4,19 +4,19 @@
   networking = {
     nftables.enable = true;
 
-    firewall.allowedTCPPorts = [ 22 ];
+    firewall.allowedTCPPorts = [ 22 80 443 8080 8443 ];
 
     nat = {
       enable = true;
       externalInterface = "enp1s0";
       forwardPorts = [
         {
-          destination = "127.0.0.1:8080";
+          destination = "10.10.0.142:8080";
           proto       = "tcp";
           sourcePort  = 80;
         }
         {
-          destination = "127.0.0.1:8443";
+          destination = "10.10.0.142:8443";
           proto       = "tcp";
           sourcePort  = 443;
         }
