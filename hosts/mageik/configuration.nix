@@ -27,7 +27,22 @@
     supportedFilesystems = ["zfs"];
     zfs.forceImportRoot = false;
     # zfs.extraPools = [ "dpool" ];
+
+    kernel.sysctl = {
+      "fs.inotify.max_user_instances" = 8192;
+      "fs.inotify.max_user_watches" = 524288;
+      "fs.file-max" = 100000;
+    };
   };
+
+  security.pam.loginLimits = [
+    {
+      domain = "*";
+      type = "-";
+      item = "nofile";
+      value = "8192";
+    }
+  ];
 
   networking.hostId = "ca804fa7"; # `head -c 8 /etc/machine-id`
 
