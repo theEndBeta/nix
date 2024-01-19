@@ -145,6 +145,7 @@
       "docker-buildx"
 
       "vfkit"
+      "databricks"
     ];
     casks = [
       "podman-desktop"
@@ -153,6 +154,7 @@
       "pantsbuild/tap"
       "dagger/tap"
       "cfergeau/crc"
+      "databricks/tap"
     ];
   };
 }
