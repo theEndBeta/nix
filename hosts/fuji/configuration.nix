@@ -133,6 +133,9 @@
       "awscli"
       "gcc"
 
+      "gnu-sed" # gsed
+      "findutils" # gxargs
+
       # etxlib requirements
       "gfortran"
       "cython"
