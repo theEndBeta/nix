@@ -106,6 +106,7 @@
     fd
     fzf
     difftastic
+    bat
 
     just
 
