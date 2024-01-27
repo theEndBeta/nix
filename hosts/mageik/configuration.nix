@@ -26,7 +26,7 @@
 
     supportedFilesystems = ["zfs"];
     zfs.forceImportRoot = false;
-    # zfs.extraPools = [ "dpool" ];
+    zfs.extraPools = [ "tank" ];
 
     kernel.sysctl = {
       "fs.inotify.max_user_instances" = 8192;
