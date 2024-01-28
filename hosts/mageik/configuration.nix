@@ -107,6 +107,7 @@
     fzf
     difftastic
     bat
+    jq
 
     just
 
