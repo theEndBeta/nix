@@ -70,6 +70,7 @@
 
     users.vesu = {
       isNormalUser = true;
+      linger = true;
       extraGroups = [ "wheel" "networkManager" "dialout" ]; # Enable ‘sudo’ for the user.
       home = "/home/vesu";
       createHome = true;
