@@ -1,7 +1,7 @@
 { config, inputs, ... }:
 
 {
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+  imports = [ inputs.home-manager-unstable.nixosModules.home-manager ];
 
   config = {
     home-manager.users.vesu = {

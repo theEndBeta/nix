@@ -5,11 +5,14 @@
 { config, pkgs, inputs, ... }:
 
 {
+  # specialArgs = { inherit inputs; };
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./sanoid.nix
       ./home.nix
+      ./podman.nix
+      ./network.nix
     ];
 
   time.timeZone = "America/New_York";
@@ -23,8 +26,23 @@
 
     supportedFilesystems = ["zfs"];
     zfs.forceImportRoot = false;
-    # zfs.extraPools = [ "dpool" ];
+    zfs.extraPools = [ "tank" ];
+
+    kernel.sysctl = {
+      "fs.inotify.max_user_instances" = 8192;
+      "fs.inotify.max_user_watches" = 524288;
+      "fs.file-max" = 100000;
+    };
   };
+
+  security.pam.loginLimits = [
+    {
+      domain = "*";
+      type = "-";
+      item = "nofile";
+      value = "8192";
+    }
+  ];
 
   networking.hostId = "ca804fa7"; # `head -c 8 /etc/machine-id`
 
@@ -52,13 +70,19 @@
 
     users.vesu = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkManager" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "networkManager" "dialout" ]; # Enable ‘sudo’ for the user.
       home = "/home/vesu";
       createHome = true;
       packages = [
         pkgs.bitwarden-cli
         pkgs.nodePackages.yaml-language-server
         pkgs.ansible-language-server
+      ];
+      subUidRanges = [
+        { startUid = 100000; count = 65536; }
+      ];
+      subGidRanges = [
+        { startGid = 100000; count = 65536; }
       ];
       openssh.authorizedKeys.keys = [
         "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJK6ko9hE8IV2s9IHvbNI+/JhIWSZ61JgnlR+xyYar+UAAAACXNzaDpnaXQtYQ== a@greatpigeon@etna"
@@ -82,12 +106,13 @@
     fd
     fzf
     difftastic
+    bat
+    jq
 
     just
 
-    nftables
+    python3
 
-    neovim
     tree-sitter
     nil
     nodePackages.bash-language-server
@@ -121,12 +146,6 @@
     settings.PasswordAuthentication = false;
     settings.PermitRootLogin = "no";
   };
-
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
