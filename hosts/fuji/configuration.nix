@@ -26,18 +26,22 @@
     extra-nix-path = nixpkgs=flake:nixpkgs
   '';
 
-#  launchd.agents = {
+#  launchd.user.agents = {
 #    homebrewSSHAgent = {
 #      serviceConfig = {
 #        Label = "com.homebrew.openssh.ssh-agent";
 #        EnableTransactions = true;
-#        ProgramArguments = ["/opt/homebrew/bin/ssh-agent" "-D"];
+#        ProgramArguments = [
+#          "/opt/homebrew/bin/ssh-agent"
+#          "-D"
+#        ];
 #        Sockets.Listeners = {
-#            SecureSocketWithKey = "SSH_AUTH_SOCK";
-#          };
+#          SecureSocketWithKey = "SSH_AUTH_SOCK";
 #        };
 #      };
 #    };
+#  };
+
   launchd.agents = {
     homebrewSSHd = {
       serviceConfig = {
@@ -85,6 +89,7 @@
 
     python311Packages.argcomplete
 
+    lima
     podman-tui
   ];
 
@@ -142,6 +147,7 @@
       "lapack"
       "openblas"
       "podman"
+      "podman-compose"
       "qemu"
       "viddy"
       "docker"
