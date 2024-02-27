@@ -10,6 +10,8 @@ let
   ];
   empPkgs = with pkgs; [
     git
+    pkgs-unstable.gh
+    pkgs-unstable.uv
 
     awscli2
 
