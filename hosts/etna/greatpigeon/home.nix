@@ -24,13 +24,18 @@
     bat
     eza
     bottom
+    ripgrep
+    fd
+    fzf
 
     # language servers
     nil # nix
     nodePackages.pyright
     nodePackages.yaml-language-server
+    nodePackages.bash-language-server
     lua-language-server
     terraform-ls
+    ruff-lsp
     tflint
     ansible-language-server
     ansible-lint
@@ -38,20 +43,13 @@
 
     shellcheck
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
     (nerdfonts.override { fonts = [ "Hack" ]; })
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
     pkgs-unstable.go
     pipx
+
+
+    shadowsocks-rust
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
