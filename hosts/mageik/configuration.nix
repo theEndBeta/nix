@@ -109,6 +109,7 @@
     difftastic
     bat
     jq
+    unzip
 
     just
 

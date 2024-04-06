@@ -4,7 +4,16 @@
   networking = {
     nftables.enable = true;
 
-    firewall.allowedTCPPorts = [ 22 80 443 8080 8443 8888 ];
+    firewall.allowedTCPPorts = [
+      22
+      80
+      443
+      1883 # mqttv4
+      1884 # mqttv5
+      8080
+      8443
+      8888
+    ];
 
     nat = {
       enable = true;
