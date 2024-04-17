@@ -27,6 +27,8 @@ let
     # dagger + pants need the docker cli tools
     docker-client
     docker-buildx
+
+    nodePackages.aws-cdk
   ];
 in
   {
