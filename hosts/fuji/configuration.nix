@@ -50,6 +50,19 @@
         ProgramArguments = ["/opt/homebrew/sbin/sshd" "-D"];
       };
     };
+    homebrewSSHAgent = {
+      serviceConfig = {
+        Label = "com.homebrew.openssh.ssh-agent";
+        EnableTransactions = true;
+        ProgramArguments = [
+          "/opt/homebrew/bin/ssh-agent"
+          "-D"
+        ];
+        Sockets.Listeners = {
+          SecureSocketWithKey = "SSH_AUTH_SOCK";
+        };
+      };
+    };
   };
 
   system.stateVersion = 4;
@@ -113,13 +126,9 @@
       home = {
         stateVersion = "23.11";
         packages = with pkgs; [
-          nodePackages.bash-language-server
-          nodePackages.yaml-language-server
-          nodePackages.pyright
           nodePackages.yarn
           nil
           marksman
-          pipx
           hadolint
         ];
       };

@@ -54,6 +54,7 @@
         modules = [
           ./hosts/katmai/greatpigeon/home.nix
           ./shared/emp.nix
+          ./shared/nvim.nix
         ];
       };
     };
