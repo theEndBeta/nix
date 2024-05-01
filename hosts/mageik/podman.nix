@@ -11,7 +11,7 @@
     target = "systemd/user-generators/podman-user-generator";
   };
 
- # environment.systemPackages = [
- #   inputs.nixpkgs-unstable.podman-tui
- # ];
+ environment.systemPackages = [
+   pkgs.crun
+ ];
 }
