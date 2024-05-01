@@ -13,5 +13,6 @@
 
  environment.systemPackages = [
    pkgs.crun
+   pkgs.passt
  ];
 }
