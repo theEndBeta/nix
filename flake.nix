@@ -17,13 +17,20 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, home-manager-unstable }@inputs: {
-    nixosConfigurations = {
+    nixosConfigurations = let
+      system = "x86-64-linux";
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    in
+    {
       glacier = nixpkgs.lib.nixosSystem {
-        system = "x86-64-linux";
+        system = system;
+        extraSpecialArgs = {
+          inherit pkgs-unstable;
+        };
         modules = [ ./hosts/glacier/configuration.nix ];
       };
-      system = "x86-64-linux";
       mageik = nixpkgs-unstable.lib.nixosSystem {
+        system = system;
         specialArgs = {inherit inputs;};
         modules = [ ./hosts/mageik/configuration.nix ];
       };
