@@ -135,46 +135,57 @@
     };
   };
 
-  # still needs to be installed manually
-  # https://brew.sh/
-  homebrew = {
-    enable = true;
-    onActivation.autoUpdate = true;
-    brews = [
-      "libfido2"
-      "openssh"
-      "pyenv"
+  homebrew = let
+    aws-brews = [
       "awscli"
-      "gcc"
-
-      "gnu-sed" # gsed
-      "findutils" # gxargs
-
-      # etxlib requirements
-      "gfortran"
-      "cython"
-      "lapack"
-      "openblas"
-      "podman"
-      "podman-compose"
-      "qemu"
-      "viddy"
-      "docker"
-      "docker-buildx"
-
-      "vfkit"
-      "databricks"
+      "aws-cdk"
+      "cloudformation-cli"
     ];
-    casks = [
-      "podman-desktop"
+    containers = [
+        "podman"
+        "podman-compose"
+        "qemu"
+        "docker"
+        "docker-buildx"
+        "vfkit"
     ];
-    taps = [
-      "pantsbuild/tap"
-      "dagger/tap"
-      "cfergeau/crc"
-      "databricks/tap"
-    ];
-  };
+  in
+    # still needs to be installed manually
+    # https://brew.sh/
+    {
+      enable = true;
+      onActivation.autoUpdate = true;
+      brews = [
+        "libfido2"
+        "openssh"
+        "pyenv"
+        "gcc"
+
+        "gnu-sed" # gsed
+        "findutils" # gxargs
+
+        # etxlib requirements
+        "gfortran"
+        "cython"
+        "lapack"
+        "openblas"
+
+        "viddy"
+        "databricks"
+      ]
+      ++ aws-brews
+      ++ containers
+      ;
+      casks = [
+        "podman-desktop"
+      ];
+      taps = [
+        "pantsbuild/tap"
+        "dagger/tap"
+        "cfergeau/crc"
+        "databricks/tap"
+      ];
+    };
 }
 
 # vim: set expandtab ts=2 sw=2:
