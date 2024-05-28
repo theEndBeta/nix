@@ -81,7 +81,7 @@
 
   environment.systemPackages = with pkgs; [
     tmux
-    neovim
+    pkgs-unstable.neovim
     chezmoi
     curl
     wget
