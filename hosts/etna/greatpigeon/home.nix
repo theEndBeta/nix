@@ -33,6 +33,7 @@
     nodePackages.pyright
     nodePackages.yaml-language-server
     nodePackages.bash-language-server
+    shfmt
     lua-language-server
     terraform-ls
     ruff-lsp
