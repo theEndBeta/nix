@@ -124,7 +124,7 @@
     users.aidanstein = { pkgs, home, pkgs-unstable, ... }: {
       imports = [ ../../shared/emp.nix ];
       home = {
-        stateVersion = "23.11";
+        stateVersion = "24.05";
         packages = with pkgs; [
           nodePackages.yarn
           nil
