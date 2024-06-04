@@ -122,7 +122,10 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.aidanstein = { pkgs, home, pkgs-unstable, ... }: {
-      imports = [ ../../shared/emp.nix ];
+      imports = [
+        ../../shared/emp.nix
+        ../../shared/nvim.nix
+      ];
       home = {
         stateVersion = "24.05";
         packages = with pkgs; [

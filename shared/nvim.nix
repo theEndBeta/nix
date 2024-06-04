@@ -9,7 +9,7 @@ let
     lua-language-server
   ];
   nvimReqs = with pkgs; [
-    neovim
+    pkgs-unstable.neovim
     tree-sitter
   ];
 in
