@@ -100,6 +100,7 @@
     ripgrep
     eza
     fd
+    rclone
 
     nftables
 
