@@ -175,6 +175,8 @@
 
         "viddy"
         "databricks"
+
+        "opentofu"
       ]
       ++ aws-brews
       ++ containers
