@@ -177,6 +177,8 @@
         "databricks"
 
         "opentofu"
+        "tflint"
+        "terraform-ls"
       ]
       ++ aws-brews
       ++ containers
