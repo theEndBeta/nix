@@ -77,7 +77,7 @@
     description = "Wait for system-level network-online.service (https://github.com/systemd/systemd/issues/3312#issuecomment-2185399471)";
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "bash -c 'until systemctl is-active network-online.target; do sleep 1; done'";
+      ExecStart = "bash -c \'until systemctl is-active network-online.target; do sleep 1; done\'";
       RemainAfterExit = "yes";
     };
   };
