@@ -72,12 +72,14 @@
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
 
+  # Wait for system-level network-online.service
+  # https://github.com/systemd/systemd/issues/3312#issuecomment-2185399471
   systemd.user.services.network-online-user = {
     enable = true;
-    description = "Wait for system-level network-online.service (https://github.com/systemd/systemd/issues/3312#issuecomment-2185399471)";
+    description = "Wait for system-level network-online.service";
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "bash -c \'until systemctl is-active network-online.target; do sleep 1; done\'";
+      ExecStart = "${pkgs.bash}/bin/bash -c \'until ${pkgs.systemd}/bin/systemctl is-active network-online.target; do sleep 1; done\'";
       RemainAfterExit = "yes";
     };
   };
