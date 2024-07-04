@@ -25,6 +25,8 @@
     options = "--delete-older-than 30d";
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   # Use the systemd-boot EFI boot loader.
   boot = {
     loader.systemd-boot.enable = true;
@@ -69,6 +71,16 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
+
+  systemd.user.services.network-online-user = {
+    enable = true;
+    description = "Wait for system-level network-online.service (https://github.com/systemd/systemd/issues/3312#issuecomment-2185399471)";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "bash -c 'until systemctl is-active network-online.target; do sleep 1; done'";
+      RemainAfterExit = "yes";
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
