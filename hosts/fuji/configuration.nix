@@ -179,6 +179,7 @@
         "opentofu"
         "tflint"
         "terraform-ls"
+        "terragrunt"
       ]
       ++ aws-brews
       ++ containers
