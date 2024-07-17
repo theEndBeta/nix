@@ -15,7 +15,7 @@
     package = pkgs-unstable.tailscale;
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  # security.pam.enableSudoTouchIdAuth = true;
 
   nix.extraOptions = ''
     # from determinate systems installer
