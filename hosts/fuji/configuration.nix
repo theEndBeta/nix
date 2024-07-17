@@ -54,13 +54,12 @@
       serviceConfig = {
         Label = "com.homebrew.openssh.ssh-agent";
         EnableTransactions = true;
+        RunAtLoad = true;
         ProgramArguments = [
-          "/opt/homebrew/bin/ssh-agent"
-          "-D"
+          "/bin/sh"
+          "-c"
+          "rm -f $SSH_AUTH_SOCK; exec /opt/homebrew/bin/ssh-agent -D -a $SSH_AUTH_SOCK"
         ];
-        Sockets.Listeners = {
-          SecureSocketWithKey = "SSH_AUTH_SOCK";
-        };
       };
     };
   };
