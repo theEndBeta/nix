@@ -5,7 +5,7 @@ home-manager-id := user + "@" + hostname
 cmd := if is_nixos == "true" { "nixos-rebuild" } else { "home-manager" }
 sudo := if is_nixos == "true" { "sudo" } else { "" }
 target := if is_nixos == "true" { hostname } else { home-manager-id }
-export NIX_BUILD_CORES := `nproc=$(nproc); echo $(( nproc / 2 ))`
+export NIX_BUILD_CORES := num_cpus()
 
 default: sys-info
 
@@ -27,7 +27,7 @@ build:
   {{sudo}} {{ cmd }} build --flake ".#{{ target }}"
 
 update:
-  nix flake update
+  {{sudo }} nix flake update
 
 [linux]
 check:
