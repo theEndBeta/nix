@@ -95,6 +95,7 @@
     difftastic
     jq
     bottom
+    universal-ctags
 
     pkgs-unstable.fzf
     tree-sitter
