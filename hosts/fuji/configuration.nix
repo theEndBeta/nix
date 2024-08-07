@@ -96,7 +96,7 @@
     jq
     bottom
 
-    fzf
+    pkgs-unstable.fzf
     tree-sitter
 
     python311Packages.argcomplete
