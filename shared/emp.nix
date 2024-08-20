@@ -23,6 +23,7 @@ let
     shellcheck
 
     pipx
+    pyenv
 
     # dagger + pants need the docker cli tools
     docker-client
