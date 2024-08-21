@@ -13,6 +13,9 @@ let
     pkgs-unstable.gh
     pkgs-unstable.uv
 
+    pkgs-unstable.terraform-ls
+    tenv
+
     awscli2
 
     nodePackages.pyright
