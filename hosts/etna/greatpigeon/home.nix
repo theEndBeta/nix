@@ -27,6 +27,7 @@
     ripgrep
     fd
     fzf
+    yazi
 
     # language servers
     nil # nix
@@ -40,7 +41,6 @@
     tflint
     ansible-language-server
     ansible-lint
-    ansible
 
     shellcheck
 
@@ -48,7 +48,6 @@
 
     pkgs-unstable.go
     pipx
-
 
     shadowsocks-rust
   ];
