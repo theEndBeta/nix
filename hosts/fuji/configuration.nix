@@ -191,6 +191,7 @@
         "dagger/tap"
         "cfergeau/crc"
         "databricks/tap"
+        "jannis-baum/tap"
       ];
     };
 }
