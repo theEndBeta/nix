@@ -18,6 +18,7 @@
       "tank/appdata" = {
         use_template = ["appdata"];
         processChildrenOnly = true;
+        recursive = true;
       };
     };
   };
