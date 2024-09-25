@@ -185,6 +185,7 @@
       ;
       casks = [
         "podman-desktop"
+        "wezterm@nightly"
       ];
       taps = [
         "pantsbuild/tap"
