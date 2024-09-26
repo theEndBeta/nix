@@ -160,8 +160,10 @@
       brews = [
         "libfido2"
         "openssh"
-        "pyenv"
         "gcc"
+
+        "pyenv"
+        "uv"
 
         "gnu-sed" # gsed
         "findutils" # gxargs

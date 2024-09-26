@@ -11,7 +11,6 @@ let
   empPkgs = with pkgs; [
     git
     pkgs-unstable.gh
-    pkgs-unstable.uv
 
     pkgs-unstable.terraform-ls
     tenv
