@@ -85,7 +85,6 @@
     curl
     wget
     git
-    just
     bitwarden-cli
 
     ripgrep
@@ -161,6 +160,7 @@
         "libfido2"
         "openssh"
         "gcc"
+        "just"
 
         "pyenv"
         "uv"
