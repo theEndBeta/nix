@@ -165,6 +165,9 @@
         "pyenv"
         "uv"
 
+        "viddy"
+        "yazi"
+
         "gnu-sed" # gsed
         "findutils" # gxargs
 
@@ -174,7 +177,6 @@
         "lapack"
         "openblas"
 
-        "viddy"
         "databricks"
 
         "opentofu"
@@ -195,6 +197,9 @@
         "cfergeau/crc"
         "databricks/tap"
         "jannis-baum/tap"
+
+        # av (https://docs.aviator.co/aviator-cli)
+        "aviator-co/tap"
       ];
     };
 }
