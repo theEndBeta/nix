@@ -31,9 +31,9 @@
 
     # language servers
     nil # nix
-    nodePackages.pyright
-    nodePackages.yaml-language-server
-    nodePackages.bash-language-server
+    pyright
+    yaml-language-server
+    bash-language-server
     shfmt
     lua-language-server
     terraform-ls

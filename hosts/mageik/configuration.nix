@@ -96,7 +96,7 @@
       createHome = true;
       packages = [
         pkgs.bitwarden-cli
-        pkgs.nodePackages.yaml-language-server
+        pkgs.yaml-language-server
         pkgs.ansible-language-server
       ];
       subUidRanges = [

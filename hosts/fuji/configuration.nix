@@ -127,7 +127,7 @@
       home = {
         stateVersion = "24.11";
         packages = with pkgs; [
-          nodePackages.yarn
+          yarn
           nil
           marksman
           hadolint

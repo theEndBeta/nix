@@ -115,7 +115,7 @@
     neovim
     tree-sitter
     nil
-    nodePackages.bash-language-server
+    bash-language-server
     shellcheck
     nodePackages.neovim
     python311Packages.pynvim

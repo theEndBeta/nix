@@ -17,9 +17,9 @@ let
 
     awscli2
 
-    nodePackages.pyright
-    nodePackages.yaml-language-server
-    nodePackages.bash-language-server
+    pyright
+    yaml-language-server
+    bash-language-server
     ruff-lsp
 
     shellcheck

@@ -4,8 +4,8 @@ let
   langServers = with pkgs; [
     pyright
     ruff-lsp
-    nodePackages.yaml-language-server
-    nodePackages.bash-language-server
+    yaml-language-server
+    bash-language-server
     lua-language-server
   ];
   nvimReqs = with pkgs; [
