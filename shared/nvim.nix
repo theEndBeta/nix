@@ -2,7 +2,7 @@
 
 let
   langServers = with pkgs; [
-    nodePackages.pyright
+    pyright
     ruff-lsp
     nodePackages.yaml-language-server
     nodePackages.bash-language-server
