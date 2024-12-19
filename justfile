@@ -19,8 +19,8 @@ sys-info:
   @echo "build-cores" {{ NIX_BUILD_CORES }}
 
 [linux]
-switch:
-  {{sudo}} {{ cmd }} switch --flake ".#{{ target }}"
+switch *ARGS:
+  {{sudo}} {{ cmd }} switch --flake ".#{{ target }}" {{ARGS}}
 
 [linux]
 build:
