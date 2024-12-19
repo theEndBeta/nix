@@ -20,7 +20,7 @@
   nix.extraOptions = ''
     # from determinate systems installer
     build-users-group = nixbld
-    experimental-features = nix-command flakes repl-flake
+    experimental-features = nix-command flakes
     bash-prompt-prefix = (nix:$name)\040
     max-jobs = auto
     extra-nix-path = nixpkgs=flake:nixpkgs
