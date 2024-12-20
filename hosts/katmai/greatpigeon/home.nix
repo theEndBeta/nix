@@ -26,7 +26,7 @@
     bottom
     ripgrep
     fd
-    fzf
+    pkgs-unstable.fzf
 
     # language servers
     nil # nix
