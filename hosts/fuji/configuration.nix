@@ -85,7 +85,7 @@
     curl
     wget
     git
-    bitwarden-cli
+    pkgs-unstable.bitwarden-cli
 
     ripgrep
     eza
