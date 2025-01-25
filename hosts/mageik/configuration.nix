@@ -139,7 +139,7 @@
     nil
     nodePackages.bash-language-server
     shellcheck
-    nodePackages.neovim
+    neovim-node-client
     python311Packages.pynvim
     python311Packages.argcomplete
   ];

@@ -67,7 +67,6 @@
       createHome = true;
       packages = with pkgs; [
         tree
-        neovim
         just
       ];
       openssh.authorizedKeys.keys = [
@@ -117,7 +116,7 @@
     nil
     bash-language-server
     shellcheck
-    nodePackages.neovim
+    neovim-node-client
     python311Packages.pynvim
     python311Packages.argcomplete
   ];
