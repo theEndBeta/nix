@@ -22,7 +22,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, home-manager-unstable }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, darwin, darwin-unstable, home-manager, home-manager-unstable }@inputs: {
     nixosConfigurations = let
       system = "x86_64-linux";
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
