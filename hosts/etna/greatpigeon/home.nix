@@ -32,12 +32,9 @@
     # language servers
     nil # nix
     pyright
-    yaml-language-server
     bash-language-server
     shfmt
-    lua-language-server
     terraform-ls
-    ruff-lsp
     tflint
 
     shellcheck
