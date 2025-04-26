@@ -27,7 +27,6 @@
     ripgrep
     fd
     pkgs-unstable.fzf
-    yazi
 
     # language servers
     nil # nix
