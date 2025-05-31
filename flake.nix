@@ -42,12 +42,12 @@
       glacier = nixpkgs.lib.nixosSystem {
         system = system;
         specialArgs = { inherit pkgs-unstable; inherit inputs; };
-        modules = [ ./hosts/glacier/configuration.nix ./shared/nixos/wezterm.nix ];
+        modules = [ ./hosts/glacier/configuration.nix ./shared/nixos/wezterm.nix ./shared/nixos/auto-upgrade.nix ];
       };
       mageik = nixpkgs-unstable.lib.nixosSystem {
         system = system;
         specialArgs = {inherit inputs;};
-        modules = [ ./hosts/mageik/configuration.nix ./shared/nixos/wezterm.nix ];
+        modules = [ ./hosts/mageik/configuration.nix ./shared/nixos/wezterm.nix ./shared/nixos/auto-upgrade.nix ];
       };
     };
 
