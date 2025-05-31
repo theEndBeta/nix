@@ -7,7 +7,7 @@
 }:
 
   {
-    environment.systemPackages = [pkgs.wezterm];
+    environment.systemPackages = [inputs.wezterm.packages.${pkgs.system}.default];
 
     nix.settings = {
         substituters = ["https://wezterm.cachix.org"];
