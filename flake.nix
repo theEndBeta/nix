@@ -24,7 +24,16 @@
     wezterm.url = "github:wezterm/wezterm?dir=nix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, darwin, darwin-unstable, home-manager, home-manager-unstable }@inputs: {
+  outputs = inputs @ {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      darwin,
+      darwin-unstable,
+      home-manager,
+      home-manager-unstable,
+      ...
+    }: {
     nixosConfigurations = let
       system = "x86_64-linux";
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
