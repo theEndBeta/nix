@@ -1,10 +1,10 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     darwin = {
-      url = "github:lnl7/nix-darwin/nix-darwin-24.11";
+      url = "github:lnl7/nix-darwin/nix-darwin-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin-unstable = {
@@ -13,7 +13,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager-unstable = {
@@ -30,13 +30,13 @@
     {
       glacier = nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = { inherit pkgs-unstable; };
-        modules = [ ./hosts/glacier/configuration.nix ];
+        specialArgs = { inherit pkgs-unstable; inherit inputs; };
+        modules = [ ./hosts/glacier/configuration.nix ./shared/nixos/wezterm.nix ];
       };
       mageik = nixpkgs-unstable.lib.nixosSystem {
         system = system;
         specialArgs = {inherit inputs;};
-        modules = [ ./hosts/mageik/configuration.nix ];
+        modules = [ ./hosts/mageik/configuration.nix ./shared/nixos/wezterm.nix ];
       };
     };
 
@@ -50,6 +50,7 @@
         inherit pkgs;
         extraSpecialArgs = {
           inherit pkgs-unstable;
+          inherit inputs;
           user = "greatpigeon";
         };
 
@@ -59,6 +60,7 @@
         inherit pkgs;
         extraSpecialArgs = {
           inherit pkgs-unstable;
+          inherit inputs;
           user = "greatpigeon";
         };
 
