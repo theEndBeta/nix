@@ -6,12 +6,8 @@
   ...
 }:
 
-let
-  wezterm.url = "github:wezterm/wezterm?dir=nix";
-in
-
   {
-    environment.systemPackages = [wezterm.packages.${pkgs.system}.default];
+    environment.systemPackages = [pkgs.wezterm];
 
     nix.settings = {
         substituters = ["https://wezterm.cachix.org"];

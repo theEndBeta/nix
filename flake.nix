@@ -20,6 +20,8 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    wezterm.url = "github:wezterm/wezterm?dir=nix";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, darwin, darwin-unstable, home-manager, home-manager-unstable }@inputs: {
