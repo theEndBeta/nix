@@ -107,8 +107,6 @@
     fd
     rclone
 
-    pkgs-unstable.wezterm
-
     nftables
 
     neovim
