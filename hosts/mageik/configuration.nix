@@ -172,6 +172,7 @@
   services.cockpit = {
     enable = true;
     port = 9090;
+    allowed-origins = ["https://mageik.larkspur.casa" "https://mageik.larkspur.casa:9090"];
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
