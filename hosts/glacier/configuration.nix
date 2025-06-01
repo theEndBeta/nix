@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./syncoid.nix
+      ./rclone.nix
       #./urbackup.nix
     ];
 
@@ -105,7 +106,6 @@
     ripgrep
     eza
     fd
-    rclone
 
     nftables
 
