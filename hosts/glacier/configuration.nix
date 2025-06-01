@@ -115,8 +115,8 @@
     bash-language-server
     shellcheck
     neovim-node-client
-    python311Packages.pynvim
-    python311Packages.argcomplete
+    python313Packages.pynvim
+    python313Packages.argcomplete
   ];
 
   environment.shells = with pkgs; [ zsh ];
