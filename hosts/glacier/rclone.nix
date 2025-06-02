@@ -1,4 +1,4 @@
-{ config, options, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 {
   environment.systemPackages = [pkgs.rclone];
 
@@ -6,16 +6,19 @@
 
 
   systemd.user.services.vaultwarden-db-backup = {
-    unitConfig.ConditionUser = "backup|vesu";
+    unitConfig.ConditionUser = ["|backup" "|vesu"];
     requires = ["mnt-dpool-backups-vaultwarden.mount"];
     wantedBy = ["default.target"];
-    path = [pkgs.nix];
+    path = [pkgs.openssh pkgs-unstable.tailscale];
     serviceConfig = {
       Type = "oneshot";
       ExecStart = [
-        "tailscale ssh vesu@ntfy -- systemctl --user start vaultwarden-db-backup"
-        "rclone sync \
+        "${pkgs-unstable.tailscale}/bin/tailscale ssh vesu@ntfy -- systemctl --user start vaultwarden-db-backup"
+        ''
+        ${pkgs.rclone}/bin/rclone \
           --config /etc/rclone.conf \
+          --sftp-ssh "${pkgs-unstable.tailscale}/bin/tailscale ssh vesu@ntfy" \
+          sync \
           --progress \
           --fix-case \
           --track-renames \
@@ -27,8 +30,9 @@
           --filter '+ backups/**' \
           --filter '- *' \
           ntfy:/data/appdata/vaultwarden \
-          /mnt/dpool/backups/vaultwarden"
-        "zfs snapshot dpool/backups/vaultwarden@$(date +%Y%m%d)"
+          /mnt/dpool/backups/vaultwarden
+        ''
+        "${pkgs.bash}/bin/bash -c \"${pkgs.zfs}/bin/zfs snapshot dpool/backups/vaultwarden@$$(date +%%Y%%m%%d)\""
       ];
     };
   };
