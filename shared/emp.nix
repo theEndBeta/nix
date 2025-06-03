@@ -20,7 +20,7 @@ let
     pyright
     yaml-language-server
     bash-language-server
-    ruff-lsp
+    vscode-langservers-extracted
 
     shellcheck
 

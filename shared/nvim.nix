@@ -3,7 +3,6 @@
 let
   langServers = with pkgs; [
     pyright
-    ruff-lsp
     yaml-language-server
     bash-language-server
     lua-language-server

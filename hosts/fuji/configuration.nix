@@ -9,7 +9,6 @@
     enableBashCompletion = false;
   };
 
-  services.nix-daemon.enable = true;
   services.tailscale = {
     enable = true;
     package = pkgs-unstable.tailscale;
@@ -65,6 +64,7 @@
   };
 
   system.stateVersion = 4;
+  system.primaryUser = "aidanstein";
   system.defaults = {
     dock = {
       autohide = true;
@@ -85,7 +85,6 @@
     curl
     wget
     git
-    pkgs-unstable.bitwarden-cli
 
     ripgrep
     eza
@@ -105,11 +104,7 @@
     podman-tui
   ];
 
-  fonts = {
-    packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "Hack" ]; })
-    ];
-  };
+  fonts.packages = [pkgs.nerd-fonts.hack];
 
   users.users.aidanstein = {
     home = "/Users/aidanstein";
