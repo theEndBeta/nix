@@ -18,6 +18,7 @@
   time.timeZone = "America/New_York";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.download-buffer-size = 524288000;
 
   nix.gc = {
     automatic = true;
