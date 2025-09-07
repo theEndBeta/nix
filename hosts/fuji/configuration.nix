@@ -9,11 +9,6 @@
     enableBashCompletion = false;
   };
 
-  services.tailscale = {
-    enable = true;
-    package = pkgs-unstable.tailscale;
-  };
-
   # security.pam.enableSudoTouchIdAuth = true;
 
   nix.extraOptions = ''
@@ -25,21 +20,19 @@
     extra-nix-path = nixpkgs=flake:nixpkgs
   '';
 
-#  launchd.user.agents = {
-#    homebrewSSHAgent = {
-#      serviceConfig = {
-#        Label = "com.homebrew.openssh.ssh-agent";
-#        EnableTransactions = true;
-#        ProgramArguments = [
-#          "/opt/homebrew/bin/ssh-agent"
-#          "-D"
-#        ];
-#        Sockets.Listeners = {
-#          SecureSocketWithKey = "SSH_AUTH_SOCK";
-#        };
-#      };
-#    };
-#  };
+  launchd.user.agents = {
+    homebrewSSHAgent = {
+      serviceConfig = {
+        Label = "com.homebrew.openssh.ssh-agent";
+        RunAtLoad = true;
+        ProgramArguments = [
+          "/bin/sh"
+          "-c"
+          "rm -f $SSH_AUTH_SOCK; exec /opt/homebrew/bin/ssh-agent -D -a $SSH_AUTH_SOCK"
+        ];
+      };
+    };
+  };
 
   launchd.agents = {
     homebrewSSHd = {
@@ -49,18 +42,18 @@
         ProgramArguments = ["/opt/homebrew/sbin/sshd" "-D"];
       };
     };
-    homebrewSSHAgent = {
-      serviceConfig = {
-        Label = "com.homebrew.openssh.ssh-agent";
-        EnableTransactions = true;
-        RunAtLoad = true;
-        ProgramArguments = [
-          "/bin/sh"
-          "-c"
-          "rm -f $SSH_AUTH_SOCK; exec /opt/homebrew/bin/ssh-agent -D -a $SSH_AUTH_SOCK"
-        ];
-      };
-    };
+    # homebrewSSHAgent = {
+    #   serviceConfig = {
+    #     Label = "com.homebrew.openssh.ssh-agent";
+    #     EnableTransactions = true;
+    #     RunAtLoad = true;
+    #     ProgramArguments = [
+    #       "/bin/sh"
+    #       "-c"
+    #       "rm -f $SSH_AUTH_SOCK; exec /opt/homebrew/bin/ssh-agent -D -a $SSH_AUTH_SOCK"
+    #     ];
+    #   };
+    # };
   };
 
   system.stateVersion = 4;
