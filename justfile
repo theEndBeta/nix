@@ -39,7 +39,7 @@ pkg-build dir=".":
 
 [macos]
 switch:
-  nix run nix-darwin -- switch --flake ".#{{ hostname }}"
+  sudo nix run nix-darwin -- switch --flake ".#{{ hostname }}"
 
 [macos]
 build:
