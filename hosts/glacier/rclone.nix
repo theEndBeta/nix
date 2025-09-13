@@ -13,11 +13,11 @@
     serviceConfig = {
       Type = "oneshot";
       ExecStart = [
-        "${pkgs-unstable.tailscale}/bin/tailscale ssh vesu@ntfy -- systemctl --user start vaultwarden-db-backup"
+        "${pkgs-unstable.tailscale}/bin/tailscale ssh vesu@azuma -- systemctl --user start vaultwarden-db-backup"
         ''
         ${pkgs.rclone}/bin/rclone \
           --config /etc/rclone.conf \
-          --sftp-ssh "${pkgs-unstable.tailscale}/bin/tailscale ssh vesu@ntfy" \
+          --sftp-ssh "${pkgs-unstable.tailscale}/bin/tailscale ssh vesu@azuma" \
           sync \
           --progress \
           --fix-case \
@@ -29,7 +29,7 @@
           --filter '+ attachments/**' \
           --filter '+ backups/**' \
           --filter '- *' \
-          ntfy:/data/appdata/vaultwarden \
+          azuma:/data/appdata/vaultwarden \
           /mnt/dpool/backups/vaultwarden
         ''
         "${pkgs.bash}/bin/bash -c \"${pkgs.zfs}/bin/zfs snapshot dpool/backups/vaultwarden@$$(date +%%Y%%m%%d)\""
