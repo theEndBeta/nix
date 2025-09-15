@@ -23,11 +23,11 @@
           --fix-case \
           --track-renames \
           --delete-excluded \
+          --filter '- .snapshots/**' \
           --filter '+ *.backup.sqlite3' \
           --filter '+ config.json' \
           --filter '+ rsa_key*' \
           --filter '+ attachments/**' \
-          --filter '+ backups/**' \
           --filter '- *' \
           azuma:/data/appdata/vaultwarden \
           /mnt/dpool/backups/vaultwarden
