@@ -13,7 +13,6 @@
     serviceConfig = {
       Type = "oneshot";
       ExecStart = [
-        "${pkgs-unstable.tailscale}/bin/tailscale ssh vesu@azuma -- systemctl --user start vaultwarden-db-backup"
         ''
         ${pkgs.rclone}/bin/rclone \
           --config /etc/rclone.conf \
