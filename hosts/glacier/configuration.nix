@@ -106,8 +106,14 @@
     ripgrep
     eza
     fd
+    fzf
+    yazi
+    difftastic
 
     nftables
+
+    gcc
+    gnumake
 
     neovim
     tree-sitter
@@ -118,6 +124,10 @@
     python313Packages.pynvim
     python313Packages.argcomplete
   ];
+
+  environment.shellInit = ''
+  source /etc/set-environment
+  '';
 
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
@@ -148,6 +158,8 @@
     package = pkgs-unstable.tailscale;
     extraUpFlags = [ "-ssh" ];
   };
+
+  programs.ssh.startAgent = true;
 }
 
 # vim: set expandtab ts=2 sw=2:
