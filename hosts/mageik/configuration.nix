@@ -98,7 +98,6 @@
       packages = [
         pkgs.bitwarden-cli
         pkgs.yaml-language-server
-        pkgs.ansible-language-server
       ];
       subUidRanges = [
         { startUid = 100000; count = 65536; }
