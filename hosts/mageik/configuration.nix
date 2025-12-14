@@ -131,6 +131,9 @@
     jq
     unzip
 
+    gcc
+    gnumake
+
     just
 
     python3
