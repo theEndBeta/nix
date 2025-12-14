@@ -4,12 +4,25 @@
   networking = {
     nftables.enable = true;
 
+    firewall.allowedUDPPorts = [
+      # govee local api
+      4001
+      4002
+      4003
+    ];
+
     firewall.allowedTCPPorts = [
       22
       80
       443
       1883
       1884
+
+      # govee local api
+      4001
+      4002
+      4003
+
       8080
       8443
       8888
