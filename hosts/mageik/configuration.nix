@@ -37,10 +37,32 @@
     zfs.forceImportRoot = false;
     zfs.extraPools = [ "tank" ];
 
+    kernelModules = [
+      "ip_tables"
+      "iptable_nat"
+      "iptable_mangle"
+      "iptable_filter"
+      "ip6_tables"
+      "ip6table_nat"
+      "ip6table_mangle"
+      "ip6table_filter"
+    ];
+
     kernel.sysctl = {
       "fs.inotify.max_user_instances" = 8192;
       "fs.inotify.max_user_watches" = 524288;
       "fs.file-max" = 100000;
+
+      # /etc/sysctl.d/60-otbr-accept-ra.conf
+      "net.ipv6.conf.enp1s0.accept_ra" = 2;
+      "net.ipv6.conf.enp1s0.accept_ra_rt_info_max_plen" = 64;
+
+      "net.ipv6.conf.enp2s0.accept_ra" = 2;
+      "net.ipv6.conf.enp2s0.accept_ra_rt_info_max_plen" = 64;
+
+      # /etc/sysctl.d/60-otbr-ip-forward.conf
+      "net.ipv6.conf.all.forwarding" = 1;
+      "net.ipv4.ip_forward" = 1;
     };
   };
 
@@ -130,6 +152,7 @@
     bat
     jq
     unzip
+    yazi
 
     gcc
     gnumake
