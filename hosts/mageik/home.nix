@@ -5,7 +5,7 @@
 
   config = {
     home-manager.users.vesu = {
-      home.stateVersion = "25.05";
+      home.stateVersion = "25.11";
       programs = {
         git = {
           enable = true;
