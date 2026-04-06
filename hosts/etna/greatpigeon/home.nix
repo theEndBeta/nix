@@ -22,11 +22,7 @@
     git
 
     bat
-    eza
     bottom
-    ripgrep
-    fd
-    pkgs-unstable.fzf
 
     # language servers
     nil # nix
